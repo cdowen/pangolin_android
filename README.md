@@ -55,3 +55,10 @@ Android_ABI:
 Please visit [Github Issues](https://github.com/FangGet/pangolin_android/issues) to view and report problems with pangolin_android. I will try my best to answer it.
 
 Contact with: fangasfrank@gmail.com
+
+## Usage
+The examples can be directly built and run with cmake and ant. Below is how it can be used in regular android app:
+
+Compiled libs(libpangolin.so) and headers(including config.h) can be used in regular android apps as a native activity. Pangolin contains a DeferredNativeActivity_onCreate method which would call main function defined in a seperate lib which contains the application code by users. So the convention in the examples can be followed: by providing a bootstrap native activity, loading the application lib and pangolin and calling xxx_onCreate method, the pangolin lib will do all the  initialization work and call the main method in the application lib which is just like application in regular linux environment.
+
+User code must be linked with the android lib and egl libs.
